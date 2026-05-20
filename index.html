@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>madrid-stagdo-7-islas-clean</title>
+  <title>Dimitri's Stag-Do in Madrid</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -38,28 +38,20 @@
       radial-gradient(circle at bottom left, rgba(209,153,0,0.08), transparent 32%),
       var(--color-bg); color: var(--color-text); }
     a { color: inherit; text-decoration: none; }
-    img, svg { display:block; max-width:100%; }
     button { font: inherit; border: 0; background: none; color: inherit; cursor: pointer; }
-    .skip { position:absolute; left:-9999px; top:auto; }
-    .skip:focus { left: var(--space-4); top: var(--space-4); background: var(--color-primary); color: var(--color-inverse); padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); z-index: 100; }
     .shell { max-width: var(--content); margin: 0 auto; padding: var(--space-4); }
-    header { padding-top: var(--space-4); }
-    .nav { display:flex; align-items:center; justify-content:space-between; gap: var(--space-4); margin-bottom: var(--space-10); }
+    .nav { display:flex; align-items:center; justify-content:space-between; gap: var(--space-4); margin: var(--space-4) 0 var(--space-10); }
     .brand { display:flex; align-items:center; gap: var(--space-3); font-weight: 700; letter-spacing: 0.02em; }
     .brand-mark { width: 2.5rem; height: 2.5rem; border-radius: 50%; background: linear-gradient(135deg, var(--color-primary), var(--color-accent)); display:grid; place-items:center; color: white; box-shadow: var(--shadow-sm); }
-    .brand-mark svg { width: 1.35rem; height: 1.35rem; }
     .theme-toggle { min-width: 44px; min-height: 44px; border-radius: 999px; border: 1px solid var(--color-border); background: color-mix(in srgb, var(--color-surface) 82%, transparent); display:grid; place-items:center; }
     .hero { display:grid; grid-template-columns: 1.15fr 0.85fr; gap: var(--space-8); align-items: stretch; margin-bottom: var(--space-12); }
-    .hero-card, .panel { background: color-mix(in srgb, var(--color-surface) 92%, transparent); border: 1px solid var(--color-border); border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); backdrop-filter: blur(12px); }
-    .hero-card { padding: clamp(var(--space-6), 5vw, var(--space-12)); display:flex; flex-direction:column; justify-content:space-between; min-height: 430px; }
+    .hero-card, .panel, .card, .travel-box { background: color-mix(in srgb, var(--color-surface) 94%, transparent); border: 1px solid var(--color-border); border-radius: var(--radius-xl); box-shadow: var(--shadow-sm); }
+    .hero-card { padding: clamp(var(--space-6), 5vw, var(--space-12)); display:flex; flex-direction:column; justify-content:space-between; min-height: 320px; }
     .eyebrow { display:inline-flex; align-items:center; gap: var(--space-2); width: fit-content; border: 1px solid rgba(1,105,111,0.18); background: rgba(1,105,111,0.08); color: var(--color-primary); padding: 0.45rem 0.8rem; border-radius: 999px; font-size: var(--text-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
     h1 { font-family: var(--font-display); font-size: var(--text-2xl); line-height: 0.95; max-width: 12ch; margin: var(--space-5) 0 var(--space-4); }
-    .hero-copy { max-width: 56ch; color: var(--color-text-muted); margin-bottom: var(--space-8); }
-    .hero-actions { display:flex; flex-wrap:wrap; gap: var(--space-3); }
-    .btn { min-height: 44px; padding: 0.9rem 1.1rem; border-radius: 999px; border: 1px solid var(--color-border); display:inline-flex; align-items:center; gap: var(--space-2); font-size: var(--text-sm); font-weight: 700; }
+    .hero-actions, .links, .footer-links { display:flex; flex-wrap:wrap; gap: var(--space-3); }
+    .btn, .link-chip { min-height: 44px; padding: 0.9rem 1.1rem; border-radius: 999px; border: 1px solid var(--color-border); display:inline-flex; align-items:center; gap: var(--space-2); font-size: var(--text-sm); font-weight: 700; }
     .btn-primary { background: var(--color-primary); color: var(--color-inverse); border-color: transparent; }
-    .btn-primary:hover { background: var(--color-primary-hover); }
-    .btn-secondary { background: transparent; }
     .stats { padding: clamp(var(--space-6), 4vw, var(--space-8)); display:grid; gap: var(--space-4); }
     .stats-grid { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: var(--space-4); }
     .stat { padding: var(--space-4); border-radius: var(--radius-lg); background: var(--color-surface-2); border: 1px solid color-mix(in srgb, var(--color-border) 72%, transparent); }
@@ -69,73 +61,44 @@
     .section-heading { display:flex; align-items:end; justify-content:space-between; gap: var(--space-4); margin-bottom: var(--space-5); }
     h2 { font-size: var(--text-xl); font-family: var(--font-display); line-height: 1.02; }
     .muted { color: var(--color-text-muted); }
-    .cards { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: var(--space-5); }
-.day-block { display:grid; gap: var(--space-5); margin-bottom: var(--space-8); }
+    .day-block { display:grid; gap: var(--space-5); margin-bottom: var(--space-8); }
     .day-head { display:flex; align-items:end; justify-content:space-between; gap: var(--space-4); margin-bottom: var(--space-2); }
     .day-title { font-size: var(--text-lg); font-weight: 800; letter-spacing: 0.01em; }
     .day-sub { color: var(--color-text-muted); font-size: var(--text-sm); }
-    .card { background: color-mix(in srgb, var(--color-surface) 95%, transparent); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: var(--space-6); box-shadow: var(--shadow-sm); display:grid; gap: var(--space-4); }
+    .cards { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: var(--space-5); }
+    .card { padding: var(--space-6); display:grid; gap: var(--space-4); }
     .card-top { display:flex; justify-content:space-between; gap: var(--space-3); align-items:flex-start; }
     .pill { display:inline-flex; width: fit-content; align-items:center; gap: 0.4rem; padding: 0.4rem 0.75rem; border-radius: 999px; font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; }
     .pill.confirmed { background: rgba(67,122,34,0.12); color: #315d18; }
     .pill.pending { background: rgba(209,153,0,0.14); color: #8a5b00; }
-    [data-theme="dark"] .pill.confirmed { color: #9fd07f; background: rgba(109,170,69,0.18); }
-    [data-theme="dark"] .pill.pending { color: #f0c76a; background: rgba(232,175,52,0.18); }
-    h3 { font-size: var(--text-lg); line-height: 1.15; }
     .meta { display:grid; gap: var(--space-2); color: var(--color-text-muted); font-size: var(--text-sm); }
     .meta strong { color: var(--color-text); }
-    .links { display:flex; flex-wrap:wrap; gap: var(--space-3); }
-    .link-chip { min-height: 44px; padding: 0.8rem 0.95rem; border-radius: 999px; border: 1px solid var(--color-border); background: var(--color-surface-2); font-size: var(--text-sm); font-weight: 600; }
     .travel-grid { display:grid; grid-template-columns: 1fr 1fr; gap: var(--space-5); }
-    .travel-box { padding: var(--space-5); border-radius: var(--radius-xl); background: color-mix(in srgb, var(--color-surface) 94%, transparent); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); }
-    .travel-box p + p { margin-top: var(--space-3); }
+    .travel-box { padding: var(--space-5); }
     .note-box { padding: var(--space-5); border-radius: var(--radius-xl); background: linear-gradient(135deg, rgba(1,105,111,0.1), rgba(209,153,0,0.08)); border: 1px solid rgba(1,105,111,0.15); }
-    footer { padding-top: var(--space-4); color: var(--color-text-muted); font-size: var(--text-sm); }
-    .footer-links { display:flex; flex-wrap:wrap; gap: var(--space-3); margin-top: var(--space-3); }
-    @media (max-width: 900px) {
-      .hero, .cards, .travel-grid { grid-template-columns: 1fr; }
-      .section-heading { align-items:flex-start; flex-direction:column; }
-    }
-    @media (max-width: 640px) {
-      .shell { padding: var(--space-3); }
-      .nav { margin-bottom: var(--space-6); }
-      .hero-card { min-height: auto; }
-      .stats-grid { grid-template-columns: 1fr; }
-      h1 { max-width: 10ch; }
-      .hero-actions, .links, .footer-links { flex-direction: column; align-items: stretch; }
-      .btn, .link-chip { justify-content: center; }
-    }
+    @media (max-width: 900px) { .hero, .cards, .travel-grid { grid-template-columns: 1fr; } .section-heading { align-items:flex-start; flex-direction:column; } }
+    @media (max-width: 640px) { .shell { padding: var(--space-3); } .nav { margin-bottom: var(--space-6); } .stats-grid { grid-template-columns: 1fr; } .hero-actions, .links, .footer-links { flex-direction: column; align-items: stretch; } .btn, .link-chip { justify-content: center; } }
   </style>
 </head>
 <body>
-  <a class="skip" href="#content">Skip to content</a>
   <div class="shell">
     <header>
       <div class="nav">
-        <div class="brand" aria-label="Madrid stag do schedule logo">
-          <span class="brand-mark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M5 16.5 12 4l7 12.5" />
-              <path d="M8 16.5h8" />
-              <path d="M10.5 20h3" />
-            </svg>
-          </span>
-          <span>Madrid stagdo</span>
+        <div class="brand" aria-label="Dimitri's Stag-Do in Madrid logo">
+          <span class="brand-mark" aria-hidden="true">D</span>
+          <span>Dimitri's Stag-Do in Madrid</span>
         </div>
-        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        </button>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode">◐</button>
       </div>
       <section class="hero">
         <div class="hero-card">
           <div>
-            <span class="eyebrow">Upcoming Madrid weekend</span>
-            <h1>One clean page for the full stagdo plan.</h1>
-            <p class="hero-copy">This version turns your schedule into a mobile-friendly webpage with venue details, Google Maps links, and placeholders for hotel travel times. Once you know the hotel, replace the hotel field and the route links will work straight away.</p>
+            <span class="eyebrow">Madrid weekend</span>
+            <h1>Dimitri's Stag-Do in Madrid</h1>
           </div>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#schedule">View schedule</a>
-            <a class="btn btn-secondary" href="#travel">Hotel travel notes</a>
+            <a class="btn" href="#travel">Hotel routes</a>
           </div>
         </div>
         <aside class="panel stats" aria-label="Trip overview">
@@ -144,16 +107,15 @@
             <h2 style="margin-top: var(--space-4);">Weekend flow</h2>
           </div>
           <div class="stats-grid">
-            <div class="stat"><div class="label">Confirmed stops</div><div class="value">3 venues</div></div>
-            <div class="stat"><div class="label">Pending item</div><div class="value">1 mystery slot</div></div>
-            <div class="stat"><div class="label">Late booking</div><div class="value">Amazónico 10:30 PM</div></div>
-            <div class="stat"><div class="label">Key meetup</div><div class="value">Puerta del Sol</div></div>
+            <div class="stat"><div class="label">Confirmed stops</div><div class="value">5 items</div></div>
+            <div class="stat"><div class="label">Pending item</div><div class="value">2 TBD slots</div></div>
+            <div class="stat"><div class="label">Hotel</div><div class="value">7 Islas</div></div>
+            <div class="stat"><div class="label">Key dinner</div><div class="value">Amazónico</div></div>
           </div>
-          <p class="muted">Built to work well on phone during the trip, so the map links and travel buttons are easy to tap on the go.</p>
+          <p class="muted">Built for quick checking on phone while moving around Madrid.</p>
         </aside>
       </section>
     </header>
-
     <main id="content">
       <section id="schedule">
         <div class="section-heading">
@@ -161,7 +123,7 @@
             <p class="eyebrow">Schedule</p>
             <h2>Plan by day</h2>
           </div>
-          <p class="muted">The weekend is now split into separate day sections from Thursday through Sunday, with TBD placeholders where nothing is locked in yet.</p>
+          <p class="muted">Thursday through Sunday, with TBD placeholders where needed.</p>
         </div>
         <div id="days">
           <section class="day-block">
@@ -174,6 +136,7 @@
             <div class="day-head"><div><div class="day-title">Friday</div><div class="day-sub">Planned stops for the day.</div></div></div>
             <div class="cards">
               <article class="card"><div class="card-top"><div><p class="pill confirmed">Confirmed</p><h3 style="margin-top: var(--space-3);">Reina Sofía Museum – Guernica</h3></div><div class="muted" style="text-align:right; font-weight:700;">No set time</div></div><div class="meta"><p><strong>Address:</strong> Calle de Santa Isabel, 52, 28012 Madrid</p><p><strong>Notes:</strong> Visit to see Picasso's Guernica</p><p><strong>Travel from hotel:</strong> Open Google Maps for live timing</p><p>Flexible museum stop with no fixed time yet.</p></div><div class="links"><a class="link-chip" href="https://www.google.com/maps/search/?api=1&query=Museo%20Reina%20Sof%C3%ADa%20Calle%20Santa%20Isabel%2052%20Madrid" target="_blank" rel="noopener noreferrer">Google Maps</a><a class="link-chip" href="https://www.google.com/maps/dir/?api=1&origin=7%20Islas%20Hotel%2C%20Calle%20Valverde%2014%2C%20Madrid&destination=Calle%20de%20Santa%20Isabel%2C%2052%2C%2028012%20Madrid&travelmode=transit" target="_blank" rel="noopener noreferrer">Route from hotel</a></div></article>
+              <article class="card"><div class="card-top"><div><p class="pill confirmed">Confirmed</p><h3 style="margin-top: var(--space-3);">Luxury Food Tour with Fine Wine</h3></div><div class="muted" style="text-align:right; font-weight:700;">5:00 PM – 7:45 PM</div></div><div class="meta"><p><strong>Address:</strong> Plaza de Santa Ana, 28012, Madrid, Community of Madrid, Spain</p><p><strong>Notes:</strong> Meeting point after the museum</p><p><strong>Travel from hotel:</strong> Open Google Maps for live timing</p><p>Starts after the museum and runs until 7:45 PM.</p></div><div class="links"><a class="link-chip" href="https://www.google.com/maps/search/?api=1&query=Plaza%20de%20Santa%20Ana%2028012%20Madrid" target="_blank" rel="noopener noreferrer">Google Maps</a><a class="link-chip" href="https://www.google.com/maps/dir/?api=1&origin=7%20Islas%20Hotel%2C%20Calle%20Valverde%2014%2C%20Madrid&destination=Plaza%20de%20Santa%20Ana%2C%2028012%2C%20Madrid%2C%20Community%20of%20Madrid%2C%20Spain&travelmode=transit" target="_blank" rel="noopener noreferrer">Route from hotel</a></div></article>
             </div>
           </section>
           <section class="day-block">
@@ -192,229 +155,35 @@
           </section>
         </div>
       </section>
-
       <section id="travel">
         <div class="section-heading">
           <div>
             <p class="eyebrow">Travel</p>
             <h2>Hotel route setup</h2>
           </div>
-          <p class="muted">Enter the hotel once and the page rewrites all travel links from that base point.</p>
+          <p class="muted">Routes are based on 7 Islas Hotel.</p>
         </div>
         <div class="travel-grid">
           <div class="travel-box">
-            <label for="hotelInput" style="display:block; font-weight:700; margin-bottom: var(--space-3);">Hotel name or address</label>
-            <input id="hotelInput" type="text" value="7 Islas Hotel, Calle Valverde 14, Madrid" placeholder="e.g. Hard Rock Hotel Madrid" style="width:100%; min-height:48px; padding:0.9rem 1rem; border-radius: var(--radius-lg); border:1px solid var(--color-border); background: var(--color-surface-2); color: var(--color-text);" />
-            <p class="muted" style="margin-top: var(--space-3);">Tip: add the exact hotel address for the most reliable Google Maps route.</p>
-            <div class="hero-actions" style="margin-top: var(--space-4);">
-              <button class="btn btn-primary" id="updateHotel" type="button">Update route links</button>
-              <button class="btn btn-secondary" id="resetHotel" type="button">Reset</button>
-            </div>
+            <p><strong>Hotel:</strong> 7 Islas Hotel, Calle Valverde 14, Madrid</p>
+            <p class="muted" style="margin-top: var(--space-3);">Use the route buttons in each card to open the latest directions in Google Maps.</p>
           </div>
           <div class="note-box">
-            <p><strong>Exact travel times need the hotel location.</strong></p>
-            <p class="muted" style="margin-top: var(--space-3);">Right now the page uses a generic hotel placeholder, so each travel card says to add the hotel first. After that, each route button opens Google Maps with the hotel as the origin.</p>
+            <p><strong>Exact travel times stay live in Google Maps.</strong></p>
+            <p class="muted" style="margin-top: var(--space-3);">That keeps the page simple while still giving the group the latest route timing on the day.</p>
           </div>
         </div>
       </section>
-
-      <section>
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Sources used</p>
-            <h2>Venue details checked</h2>
-          </div>
-          <p class="muted">Useful for reservations or sending the plan around the group.</p>
-        </div>
-        <div class="travel-grid">
-          <div class="travel-box">
-            <h3>Sala de Despiece</h3>
-            <p class="muted">Address confirmed from the venue site: Calle Alonso Cano, 28, Madrid.</p>
-            <div class="footer-links">
-              <a class="link-chip" href="https://www.saladedespiece.com" target="_blank" rel="noopener noreferrer">Open venue site</a>
-            </div>
-          </div>
-          <div class="travel-box">
-            <h3>Amazónico</h3>
-            <p class="muted">Address confirmed from the venue contact page: Calle Jorge Juan, 20, 28001 Madrid.</p>
-            <div class="footer-links">
-              <a class="link-chip" href="https://www.amazonicorestaurant.com/madrid/contact/" target="_blank" rel="noopener noreferrer">Open contact page</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <footer>
-        <p>Saturday's mystery activity is intentionally marked as pending so you can drop in the location later without breaking the rest of the plan.</p>
-      </footer>
     </main>
   </div>
-
   <script>
-    const items = [
-      {
-        day: "Thursday",
-        time: "10:00 PM",
-        title: "Sala de Despiece",
-        address: "Calle Alonso Cano, 28, 28003 Madrid",
-        notes: "Dinner / night out",
-        maps_url: "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Sala de Despiece Calle Alonso Cano 28 Madrid"),
-        travel_time: "Open Google Maps for live timing",
-        travel_hint: "Route opens from 7 Islas Hotel.",
-        status: "confirmed"
-      },
-      {
-        day: "Friday",
-        time: "No set time",
-        title: "Reina Sofía Museum – Guernica",
-        address: "Calle de Santa Isabel, 52, 28012 Madrid",
-        notes: "Visit to see Picasso's Guernica",
-        maps_url: "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Museo Reina Sofía Calle Santa Isabel 52 Madrid"),
-        travel_time: "Open Google Maps for live timing",
-        travel_hint: "Flexible museum stop with no fixed time yet.",
-        status: "confirmed"
-      },
-      {
-        day: "Saturday",
-        time: "11:00 AM – 4:30 PM",
-        title: "Mystery activity",
-        address: "TBD",
-        notes: "Location still unknown",
-        maps_url: "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Madrid"),
-        travel_time: "TBD",
-        travel_hint: "Update this once the activity address is confirmed.",
-        status: "pending"
-      },
-      {
-        day: "Saturday",
-        time: "Before 10:30 PM",
-        title: "Bear and the Strawberry Tree",
-        address: "Puerta del Sol, Madrid",
-        notes: "Meet-up / photo stop before Amazónico",
-        maps_url: "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("El Oso y el Madroño Puerta del Sol Madrid"),
-        travel_time: "Open Google Maps for live timing",
-        travel_hint: "Easy central meetup before dinner.",
-        status: "confirmed"
-      },
-      {
-        day: "Saturday",
-        time: "10:30 PM",
-        title: "Amazónico",
-        address: "Calle Jorge Juan, 20, 28001 Madrid",
-        notes: "Dinner / late booking",
-        maps_url: "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Amazónico Calle Jorge Juan 20 Madrid"),
-        travel_time: "Open Google Maps for live timing",
-        travel_hint: "Route opens from 7 Islas Hotel.",
-        status: "confirmed"
-      },
-      {
-        day: "Sunday",
-        time: "TBD",
-        title: "TBD",
-        address: "TBD",
-        notes: "No plan added yet",
-        maps_url: "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Madrid"),
-        travel_time: "TBD",
-        travel_hint: "Add the Sunday plan when confirmed.",
-        status: "pending"
-      }
-    ];
-
-    const days = document.getElementById('days');
-    const hotelInput = document.getElementById('hotelInput');
-    const updateBtn = document.getElementById('updateHotel');
-    const resetBtn = document.getElementById('resetHotel');
     const themeToggle = document.querySelector('[data-theme-toggle]');
     const root = document.documentElement;
-    const defaultHotel = '7 Islas Hotel, Calle Valverde 14, Madrid';
-
-    function iconForStatus(status) {
-      return status === 'pending' ? 'Pending' : 'Confirmed';
-    }
-
-    function buildTravelUrl(origin, destination) {
-      const url = new URL('https://www.google.com/maps/dir/');
-      url.searchParams.set('api', '1');
-      url.searchParams.set('origin', origin);
-      url.searchParams.set('destination', destination);
-      url.searchParams.set('travelmode', 'transit');
-      return url.toString();
-    }
-
-    function render(origin = defaultHotel) {
-      if (!days) return;
-      const hasStaticContent = days.children.length > 0;
-      if (hasStaticContent) return;
-      days.innerHTML = '';
-      const orderedDays = ['Thursday', 'Friday', 'Saturday', 'Sunday'];
-
-      orderedDays.forEach(dayName => {
-        const group = items.filter(item => item.day === dayName);
-        const wrapper = document.createElement('section');
-        wrapper.className = 'day-block';
-        const hasRealPlan = group.some(item => item.title !== 'TBD');
-
-        wrapper.innerHTML = `
-          <div class="day-head">
-            <div>
-              <div class="day-title">${dayName}</div>
-              <div class="day-sub">${hasRealPlan ? 'Planned stops for the day.' : 'No plan yet — marked as TBD.'}</div>
-            </div>
-          </div>
-          <div class="cards"></div>
-        `;
-
-        const cards = wrapper.querySelector('.cards');
-        group.forEach(item => {
-          const article = document.createElement('article');
-          article.className = 'card';
-          const travelUrl = buildTravelUrl(origin, item.address === 'TBD' ? 'Madrid' : item.address);
-          article.innerHTML = `
-            <div class="card-top">
-              <div>
-                <p class="pill ${item.status}">${iconForStatus(item.status)}</p>
-                <h3 style="margin-top: var(--space-3);">${item.title}</h3>
-              </div>
-              <div class="muted" style="text-align:right; font-weight:700;">${item.time}</div>
-            </div>
-            <div class="meta">
-              <p><strong>Address:</strong> ${item.address}</p>
-              <p><strong>Notes:</strong> ${item.notes}</p>
-              <p><strong>Travel from hotel:</strong> ${item.travel_time}</p>
-              <p>${item.travel_hint}</p>
-            </div>
-            <div class="links">
-              <a class="link-chip" href="${item.maps_url}" target="_blank" rel="noopener noreferrer">Google Maps</a>
-              <a class="link-chip" href="${travelUrl}" target="_blank" rel="noopener noreferrer">Route from hotel</a>
-            </div>
-          `;
-          cards.appendChild(article);
-        });
-
-        days.appendChild(wrapper);
-      });
-    }
-
     let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     root.setAttribute('data-theme', theme);
-    function paintTheme() {
-      themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
-      themeToggle.innerHTML = theme === 'dark'
-        ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
-        : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
-    }
+    function paintTheme(){ themeToggle.textContent = theme === 'dark' ? '☀︎' : '◐'; themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'); }
     paintTheme();
-    themeToggle.addEventListener('click', () => {
-      theme = theme === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-theme', theme);
-      paintTheme();
-    });
-
-    if (hotelInput) hotelInput.value = defaultHotel;
-    if (updateBtn) updateBtn.addEventListener('click', () => render(hotelInput.value.trim() || defaultHotel));
-    if (resetBtn) resetBtn.addEventListener('click', () => { hotelInput.value = defaultHotel; render(defaultHotel); });
-
-    render(defaultHotel);
+    themeToggle.addEventListener('click', () => { theme = theme === 'dark' ? 'light' : 'dark'; root.setAttribute('data-theme', theme); paintTheme(); });
   </script>
 </body>
 </html>
