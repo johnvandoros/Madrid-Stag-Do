@@ -165,8 +165,13 @@
         </div>
         <div class="travel-grid">
           <div class="travel-box">
-            <p><strong>Hotel:</strong> 7 Islas Hotel, Calle Valverde 14, Madrid</p>
-            <p class="muted" style="margin-top: var(--space-3);">Use the route buttons in each card to open the latest directions in Google Maps.</p>
+            <label for="hotelInput" style="display:block; font-weight:700; margin-bottom: var(--space-3);">Hotel name or address</label>
+            <input id="hotelInput" type="text" value="7 Islas Hotel, Calle Valverde 14, Madrid" placeholder="e.g. Hard Rock Hotel Madrid" style="width:100%; min-height:48px; padding:0.9rem 1rem; border-radius: var(--radius-lg); border:1px solid var(--color-border); background: var(--color-surface-2); color: var(--color-text);" />
+            <p class="muted" style="margin-top: var(--space-3);">Update this to change all route buttons from the hotel.</p>
+            <div class="hero-actions" style="margin-top: var(--space-4);">
+              <button class="btn btn-primary" id="updateHotel" type="button">Update route links</button>
+              <button class="btn" id="resetHotel" type="button">Reset</button>
+            </div>
           </div>
           <div class="note-box">
             <p><strong>Exact travel times stay live in Google Maps.</strong></p>
@@ -178,12 +183,46 @@
   </div>
   <script>
     const themeToggle = document.querySelector('[data-theme-toggle]');
+    const hotelInput = document.getElementById('hotelInput');
+    const updateHotel = document.getElementById('updateHotel');
+    const resetHotel = document.getElementById('resetHotel');
+    const routeLinks = Array.from(document.querySelectorAll('a[href*="google.com/maps/dir/?api=1"]'));
     const root = document.documentElement;
+    const defaultHotel = '7 Islas Hotel, Calle Valverde 14, Madrid';
     let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+
+    function buildRouteUrl(origin, destination) {
+      const u = new URL('https://www.google.com/maps/dir/');
+      u.searchParams.set('api', '1');
+      u.searchParams.set('origin', origin);
+      u.searchParams.set('destination', destination);
+      u.searchParams.set('travelmode', 'transit');
+      return u.toString();
+    }
+
+    function updateRouteButtons(origin) {
+      const destinations = [
+        'Calle Alonso Cano, 28, 28003 Madrid',
+        'Calle de Santa Isabel, 52, 28012 Madrid',
+        'Plaza de Santa Ana, 28012, Madrid, Community of Madrid, Spain',
+        'Madrid',
+        'Puerta del Sol, Madrid',
+        'Calle Jorge Juan, 20, 28001 Madrid',
+        'Madrid'
+      ];
+      routeLinks.forEach((a, i) => a.href = buildRouteUrl(origin, destinations[i] || 'Madrid'));
+    }
+
     root.setAttribute('data-theme', theme);
     function paintTheme(){ themeToggle.textContent = theme === 'dark' ? '☀︎' : '◐'; themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'); }
     paintTheme();
     themeToggle.addEventListener('click', () => { theme = theme === 'dark' ? 'light' : 'dark'; root.setAttribute('data-theme', theme); paintTheme(); });
+
+    if (hotelInput) {
+      updateRouteButtons(hotelInput.value.trim() || defaultHotel);
+      updateHotel.addEventListener('click', () => updateRouteButtons(hotelInput.value.trim() || defaultHotel));
+      resetHotel.addEventListener('click', () => { hotelInput.value = defaultHotel; updateRouteButtons(defaultHotel); });
+    }
   </script>
 </body>
 </html>
